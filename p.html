@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yukesh Raj | Student Portfolio</title>
+    <meta name="description" content="Student portfolio website for a creative and aspiring developer." />
+    <style>
+        :root {
+            --bg: #090909;
+            --bg-alt: #17120a;
+            --bg-soft: #20180d;
+            --panel: rgba(20, 16, 10, 0.82);
+            --panel-2: #120f0b;
+            --text: #fffaf0;
+            --muted: #d8c7a0;
+            --primary: #d4a94d;
+            --primary-2: #f4d37a;
+            --accent: #ffbf5f;
+            --pink: #e4b45c;
+            --purple: #c99935;
+            --border: rgba(212, 169, 77, 0.2);
+            --shadow: 0 24px 50px rgba(0, 0, 0, 0.42);
+            --radius: 28px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background:
+                radial-gradient(circle at 14% 18%, rgba(212, 169, 77, 0.28), transparent 20%),
+                radial-gradient(circle at 85% 12%, rgba(255, 191, 95, 0.16), transparent 18%),
+                radial-gradient(circle at 30% 82%, rgba(150, 99, 16, 0.18), transparent 20%),
+                linear-gradient(135deg, #050505 0%, #120d07 30%, #070707 100%);
+            color: var(--text);
+            line-height: 1.6;
+            background-attachment: fixed;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1120px, calc(100% - 2rem));
+            margin: 0 auto;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            backdrop-filter: blur(14px);
+            background: rgba(18, 14, 9, 0.8);
+            border-bottom: 1px solid rgba(212, 169, 77, 0.18);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-size: 1.25rem;
+            font-weight: 900;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #f4f8ff;
+        }
+
+        .brand span {
+            color: var(--primary-2);
+            text-shadow: 0 0 22px rgba(244, 211, 122, 0.6);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            color: var(--muted);
+            font-size: 0.96rem;
+        }
+
+        .nav-links a {
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-2));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            transform: scaleX(1);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            padding: 0.9rem 1.5rem;
+            border: 1px solid transparent;
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f0c469 0%, #d4982d 45%, #8d6221 100%);
+            color: #1a1208;
+            box-shadow: 0 20px 42px rgba(212, 169, 77, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.12);
+            color: var(--text);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 20px 36px rgba(124, 156, 255, 0.24);
+        }
+
+        .section {
+            padding: 5.5rem 0;
+        }
+
+        .hero {
+            padding-top: 4.5rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 0.5rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid rgba(212, 169, 77, 0.45);
+            background: linear-gradient(135deg, rgba(212, 169, 77, 0.12), rgba(255, 191, 95, 0.08));
+            color: var(--primary-2);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.76rem;
+            font-weight: 700;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+        }
+
+        h1 {
+            margin: 1.25rem 0 1rem;
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            line-height: 1.04;
+            letter-spacing: -0.06em;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #f9e3a4 0%, #f0c469 20%, #d4942f 48%, #ffde8a 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 28px rgba(212, 169, 77, 0.2);
+        }
+
+        .lead {
+            max-width: 620px;
+            font-size: 1.08rem;
+            color: var(--muted);
+            letter-spacing: 0.01em;
+        }
+
+        .hero-actions {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .stats {
+            margin-top: 2.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.6rem;
+        }
+
+        .stat {
+            min-width: 120px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.7rem;
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        .portrait-wrap {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .portrait {
+            position: relative;
+            width: min(420px, 90%);
+            aspect-ratio: 4 / 5;
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(124, 156, 255, 0.2), rgba(255, 122, 198, 0.08), rgba(110, 231, 200, 0.12));
+            background-image: url('p.jpg.png'), linear-gradient(135deg, rgba(124, 156, 255, 0.2), rgba(255, 122, 198, 0.08), rgba(110, 231, 200, 0.12));
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .float-card {
+            position: absolute;
+            right: -10px;
+            bottom: 36px;
+            padding: 1rem 1.2rem;
+            border-radius: 18px;
+            background: rgba(12, 18, 31, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: var(--shadow);
+        }
+
+        .float-card strong {
+            display: block;
+            font-size: 1.15rem;
+        }
+
+        .float-card span {
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        .section-head {
+            margin-bottom: 2rem;
+        }
+
+        .section-head p {
+            margin: 0;
+            color: var(--primary-2);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .section-head h2 {
+            margin: 0.6rem 0 0;
+            font-size: clamp(2rem, 3vw, 3rem);
+            letter-spacing: -0.05em;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .about-grid {
+            grid-template-columns: 1.08fr 0.92fr;
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(17, 24, 39, 0.9), rgba(12, 17, 28, 0.78));
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(8px);
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0 auto auto 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 169, 77, 0.35);
+            box-shadow: 0 28px 56px rgba(0, 0, 0, 0.52);
+        }
+
+        .about-copy {
+            padding: 2rem;
+        }
+
+        .about-copy p {
+            color: var(--muted);
+            margin: 0 0 1rem;
+            font-size: 1.02rem;
+        }
+
+        .mini-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(160px, 1fr));
+            gap: 1rem;
+            margin-top: 1.4rem;
+        }
+
+        .mini-item {
+            padding: 1rem;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(124, 156, 255, 0.06));
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .mini-item strong {
+            display: block;
+            margin-bottom: 0.22rem;
+        }
+
+        .mini-item span {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        .info-card {
+            padding: 2rem;
+        }
+
+        .info-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 0.9rem;
+        }
+
+        .info-list li {
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-list li:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .info-list span {
+            display: block;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.72rem;
+        }
+
+        .info-list strong {
+            display: block;
+            margin-top: 0.35rem;
+        }
+
+        .skills-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .skill-card {
+            padding: 1.5rem 1.2rem;
+            background: linear-gradient(180deg, rgba(18, 26, 42, 0.9), rgba(13, 19, 31, 0.8));
+        }
+
+        .skill-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, rgba(212, 169, 77, 0.22), rgba(255, 191, 95, 0.12));
+            border: 1px solid rgba(212, 169, 77, 0.3);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        .skill-card h3 {
+            margin: 1rem 0 0.5rem;
+            font-size: 1.12rem;
+        }
+
+        .skill-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .projects-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .project-card {
+            overflow: hidden;
+        }
+
+        .project-card .project-body {
+            background: linear-gradient(180deg, rgba(17, 24, 39, 0.28), rgba(10, 14, 22, 0.16));
+        }
+
+        .project-visual {
+            height: 220px;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.28));
+            padding: 12px;
+        }
+
+        .project-visual .browser {
+            position: absolute;
+            inset: 12px;
+            border-radius: 16px;
+            background: rgba(11, 18, 30, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .browser-bar {
+            height: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .dot:nth-child(1) {
+            background: #ff5f57;
+        }
+
+        .dot:nth-child(2) {
+            background: #febc2e;
+        }
+
+        .dot:nth-child(3) {
+            background: #28c840;
+        }
+
+        .browser-body {
+            display: grid;
+            grid-template-columns: 1fr 2.2fr;
+            height: calc(100% - 30px);
+        }
+
+        .sidebar {
+            background: rgba(255, 255, 255, 0.02);
+            border-right: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 12px 10px;
+        }
+
+        .side-item {
+            width: 100%;
+            height: 12px;
+            margin-bottom: 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .side-item:nth-child(2) {
+            width: 70%;
+        }
+
+        .side-item:nth-child(3) {
+            width: 82%;
+        }
+
+        .side-item:nth-child(4) {
+            width: 64%;
+        }
+
+        .content {
+            padding: 12px 14px 14px;
+            background: rgba(20, 33, 51, 0.6);
+        }
+
+        .topline {
+            height: 12px;
+            width: 35%;
+            background: rgba(255, 255, 255, 0.09);
+            border-radius: 999px;
+            margin-bottom: 12px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .mini-card {
+            height: 48px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .main-panel {
+            height: 70px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .project-portfolio .main-panel {
+            background: linear-gradient(135deg, rgba(124, 156, 255, 0.18), rgba(115, 240, 210, 0.12));
+        }
+
+        .project-landing .main-panel {
+            background: linear-gradient(135deg, rgba(247, 201, 72, 0.18), rgba(124, 156, 255, 0.12));
+        }
+
+        .project-todo .main-panel {
+            background: linear-gradient(135deg, rgba(255, 134, 172, 0.18), rgba(115, 240, 210, 0.12));
+        }
+
+        .project-portfolio .mini-card:nth-child(1) {
+            background: rgba(124, 156, 255, 0.18);
+        }
+
+        .project-landing .mini-card:nth-child(1) {
+            background: rgba(247, 201, 72, 0.18);
+        }
+
+        .project-todo .mini-card:nth-child(1) {
+            background: rgba(255, 134, 172, 0.18);
+        }
+
+        .project-portfolio .mini-card:nth-child(2) {
+            background: rgba(115, 240, 210, 0.12);
+        }
+
+        .project-landing .mini-card:nth-child(2) {
+            background: rgba(124, 156, 255, 0.12);
+        }
+
+        .project-todo .mini-card:nth-child(2) {
+            background: rgba(115, 240, 210, 0.12);
+        }
+
+        .project-portfolio .mini-card:nth-child(3) {
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .project-landing .mini-card:nth-child(3) {
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .project-todo .mini-card:nth-child(3) {
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-body h3 {
+            margin: 0 0 0.7rem;
+            font-size: 1.2rem;
+        }
+
+        .project-body p {
+            margin: 0 0 1rem;
+            color: var(--muted);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tags span {
+            display: inline-block;
+            padding: 0.42rem 0.7rem;
+            border-radius: 999px;
+            background: linear-gradient(135deg, rgba(124, 156, 255, 0.16), rgba(255, 122, 198, 0.08), rgba(104, 240, 208, 0.12));
+            border: 1px solid rgba(124, 156, 255, 0.2);
+            color: #edf4ff;
+            font-size: 0.74rem;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 1.2rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 1.7rem 1.5rem 1.7rem 2rem;
+            margin-left: 0.6rem;
+            background: linear-gradient(180deg, rgba(17, 24, 39, 0.9), rgba(13, 18, 31, 0.8));
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -0.46rem;
+            top: 1.9rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-2));
+            box-shadow: 0 0 0 4px rgba(124, 156, 255, 0.16);
+        }
+
+        .timeline-item::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(124, 156, 255, 0.2);
+        }
+
+        .timeline-item .date {
+            color: var(--primary-2);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .timeline-item h3 {
+            margin: 0.55rem 0 0.25rem;
+            font-size: 1.25rem;
+        }
+
+        .timeline-item p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .contact-wrap {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            padding: 2rem;
+        }
+
+        .contact-card p {
+            color: var(--muted);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-links a {
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(124, 156, 255, 0.12), rgba(255, 122, 198, 0.08), rgba(104, 240, 208, 0.08));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .contact-links a:hover {
+            transform: translateY(-2px);
+            border-color: rgba(124, 156, 255, 0.22);
+            box-shadow: 0 18px 30px rgba(124, 156, 255, 0.12);
+        }
+
+        .proofs {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .proof-box {
+            padding: 1.4rem 1.2rem;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+        }
+
+        .proof-box span {
+            color: var(--muted);
+            display: block;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .proof-box strong {
+            display: block;
+            margin-top: 0.4rem;
+            font-size: 1.8rem;
+        }
+
+        footer {
+            padding: 2rem 0 3rem;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+
+            .hero-grid,
+            .about-grid,
+            .contact-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 700px) {
+            .nav-links {
+                display: none;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .mini-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="container nav">
+            <a href="#home" class="brand">YUKESH <span>RAJ</span></a>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a href="#contact" class="btn btn-primary">Contact Me</a>
+        </div>
+    </header>
+
+    <main id="home">
+        <section class="section hero">
+            <div class="container hero-grid">
+                <div>
+                    <span class="eyebrow">Aspiring Intern</span>
+                    <h1>
+                        I build <span class="gradient-text" id="typed-text">web experiences</span>
+                    </h1>
+                    <p class="lead">
+                        I am a student eager to learn, grow, and contribute in a real web development environment.
+                        I enjoy creating user-friendly interfaces, practicing coding, and learning through projects and
+                        internships.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">View Work</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    </div>
+
+                    <div class="stats">
+                        <div class="stat">
+                            <strong>3rd</strong>
+                            <span>Year Student</span>
+                        </div>
+                        <div class="stat">
+                            <strong>6+</strong>
+                            <span>Practice Projects</span>
+                        </div>
+                        <div class="stat">
+                            <strong>Open</strong>
+                            <span>For Internships</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portrait-wrap">
+                    <div class="portrait" aria-label="Profile illustration"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="container">
+                <div class="section-head">
+                    <p>About me</p>
+                    <h2>Learning, building, and preparing for my first internship.</h2>
+                </div>
+
+                <div class="grid about-grid">
+                    <div class="card about-copy">
+                        <p>
+                            I am a student with a strong interest in web development and front-end design.
+                            I am currently building my skills in HTML, CSS, JavaScript, and UI concepts while creating
+                            practical projects.
+                        </p>
+                        <p>
+                            My goal is to gain hands-on internship experience, improve my problem-solving skills,
+                            and work with a team to build useful digital products. I am eager to learn, listen, and
+                            contribute.
+                        </p>
+
+                        <div class="mini-grid">
+                            <div class="mini-item">
+                                <strong>Internship</strong>
+                                <span>Looking for real-world experience</span>
+                            </div>
+                            <div class="mini-item">
+                                <strong>Creative</strong>
+                                <span>Designing simple user-friendly interfaces</span>
+                            </div>
+                            <div class="mini-item">
+                                <strong>Focused</strong>
+                                <span>Building strong software fundamentals</span>
+                            </div>
+                            <div class="mini-item">
+                                <strong>Motivated</strong>
+                                <span>Ready to learn and contribute</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <aside class="card info-card">
+                        <ul class="info-list">
+                            <li>
+                                <span>Based in</span>
+                                <strong>India</strong>
+                            </li>
+                            <li>
+                                <span>Email</span>
+                                <strong>bbyukeshraja@gmail.com</strong>
+                            </li>
+                            <li>
+                                <span>Field</span>
+                                <strong>Software Development</strong>
+                            </li>
+                            <li>
+                                <span>Availability</span>
+                                <strong>Open for internships and trainee roles</strong>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <div class="container">
+                <div class="section-head">
+                    <p>Skills</p>
+                    <h2>Technologies I am learning for internship roles.</h2>
+                </div>
+
+                <div class="grid skills-grid">
+                    <article class="card skill-card">
+                        <div class="skill-icon">⚡</div>
+                        <h3>HTML</h3>
+                        <p>Structuring content and building meaningful web pages.</p>
+                    </article>
+
+                    <article class="card skill-card">
+                        <div class="skill-icon">💻</div>
+                        <h3>CSS</h3>
+                        <p>Designing layouts, styling pages, and improving user experience.</p>
+                    </article>
+
+                    <article class="card skill-card">
+                        <div class="skill-icon">📱</div>
+                        <h3>JavaScript</h3>
+                        <p>Learning interactivity, logic, and dynamic behavior on websites.</p>
+                    </article>
+
+                    <article class="card skill-card">
+                        <div class="skill-icon">☕</div>
+                        <h3>Java</h3>
+                        <p>Building logic, problem-solving, and object-oriented programming skills through practical
+                            projects.</p>
+                    </article>
+
+                    <article class="card skill-card">
+                        <div class="skill-icon">�️</div>
+                        <h3>MySQL</h3>
+                        <p>Learning database design, queries, and data management for real-world applications.</p>
+                    </article>
+
+                    <article class="card skill-card">
+                        <div class="skill-icon">�🚀</div>
+                        <h3>Teamwork</h3>
+                        <p>Learning collaboration, communication, and how to work in a development team.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <div class="container">
+                <div class="section-head">
+                    <p>Projects</p>
+                    <h2>My learning projects and practice work.</h2>
+                </div>
+
+                <div class="grid projects-grid">
+                    <article class="card project-card">
+                        <div class="project-visual project-portfolio" aria-label="Portfolio project preview">
+                            <div class="browser">
+                                <div class="browser-bar">
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                                <div class="browser-body">
+                                    <div class="sidebar">
+                                        <div class="side-item"></div>
+                                        <div class="side-item"></div>
+                                        <div class="side-item"></div>
+                                        <div class="side-item"></div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="topline"></div>
+                                        <div class="cards">
+                                            <div class="mini-card"></div>
+                                            <div class="mini-card"></div>
+                                            <div class="mini-card"></div>
+                                        </div>
+                                        <div class="main-panel"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <h3>Personal Portfolio</h3>
+                            <p>A responsive portfolio website created to showcase my skills, learning journey, and
+                                projects.</p>
+                            <div class="tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card project-card">
+                        <div class="project-visual project-portfolio" aria-label="Hotel management project preview">
+                            <div class="browser">
+                                <div class="browser-bar">
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                                <div class="browser-body">
+                                    <div class="sidebar">
+                                        <div class="side-item"></div>
+                                        <div class="side-item"></div>
+                                        <div class="side-item"></div>
+                                        <div class="side-item"></div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="topline"></div>
+                                        <div class="cards">
+                                            <div class="mini-card"></div>
+                                            <div class="mini-card"></div>
+                                            <div class="mini-card"></div>
+                                        </div>
+                                        <div class="main-panel"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <h3>Hotel Management System</h3>
+                            <p>A Java-based system for managing customer bookings, room allocation, billing, and
+                                check-in/check-out operations.</p>
+                            <div class="tags">
+                                <span>Java</span>
+                                <span>OOP</span>
+                                <span>Console App</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card project-card">
+                        <div class="project-visual project-todo" aria-label="Bank management project preview">
+                            <div class="browser">
+                                <div class="browser-bar">
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                                <div class="browser-body">
+                                    <div class="sidebar">
+                                        <div class="side-item"></div>
+                                        <div class="side-item"></div>
+                                        <div class="side-item"></div>
+                                        <div class="side-item"></div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="topline"></div>
+                                        <div class="cards">
+                                            <div class="mini-card"></div>
+                                            <div class="mini-card"></div>
+                                            <div class="mini-card"></div>
+                                        </div>
+                                        <div class="main-panel"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <h3>Bank Management System</h3>
+                            <p>A Java application designed to handle account creation, deposits, withdrawals, balance
+                                checks, and transaction tracking.</p>
+                            <div class="tags">
+                                <span>Java</span>
+                                <span>Banking</span>
+                                <span>Core Java</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="experience">
+            <div class="container">
+                <div class="section-head">
+                    <p>Experience</p>
+                    <h2>Building experience through learning and practice.</h2>
+                </div>
+
+                <div class="timeline">
+                    <article class="card timeline-item">
+                        <div class="date">2025 — Present</div>
+                        <h3>Java Intern</h3>
+                        <p>Building my practical Java skills through coding practice, problem-solving, and learning
+                            backend-focused application concepts.</p>
+                    </article>
+
+                    <article class="card timeline-item">
+                        <div class="date">2024 — Present</div>
+                        <h3>Frontend Intern Aspirant</h3>
+                        <p>Developing my front-end skills through projects, coding practice, and learning real web
+                            development workflows.</p>
+                    </article>
+
+                    <article class="card timeline-item">
+                        <div class="date">2023 — 2024</div>
+                        <h3>Web Development Learner</h3>
+                        <p>Started learning HTML, CSS, JavaScript, and responsive design while creating small practice
+                            projects.</p>
+                    </article>
+
+                    <article class="card timeline-item">
+                        <div class="date">2022 — 2023</div>
+                        <h3>Beginner Programmer</h3>
+                        <p>Practiced coding fundamentals, logic building, and simple task-based projects to strengthen
+                            my base.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="container contact-wrap">
+                <div class="card contact-card">
+                    <div class="section-head" style="margin-bottom: 1rem;">
+                        <p>Contact</p>
+                        <h2>Let’s build something meaningful.</h2>
+                    </div>
+                    <p>
+                        I am actively looking for internship opportunities where I can learn, contribute, and improve my
+                        frontend development skills.
+                        I am open to beginner-friendly projects, trainee roles, and collaborative learning
+                        opportunities.
+                    </p>
+                    <div class="contact-links">
+                        <a href="mailto:bbyukeshraja@gmail.com">Email Me</a>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+                        <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="proofs">
+                    <div class="card proof-box">
+                        <span>Availability</span>
+                        <strong>Open</strong>
+                    </div>
+                    <div class="card proof-box">
+                        <span>Learning</span>
+                        <strong>Web Dev</strong>
+                    </div>
+                    <div class="card proof-box">
+                        <span>Focus</span>
+                        <strong>Full Stack</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            © <span id="year"></span> Yukesh Raj. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        const typedText = document.getElementById('typed-text');
+        const textPool = ['digital experiences', 'beautiful interfaces', 'modern products', 'clean user journeys'];
+        let textIndex = 0;
+        let letterIndex = 0;
+
+        function typeLoop() {
+            const current = textPool[textIndex];
+            typedText.textContent = current.slice(0, letterIndex + 1);
+            letterIndex++;
+
+            if (letterIndex < current.length) {
+                setTimeout(typeLoop, 120);
+            } else {
+                setTimeout(() => {
+                    const removeTimer = setInterval(() => {
+                        typedText.textContent = current.slice(0, letterIndex - 1);
+                        letterIndex--;
+                        if (letterIndex <= 0) {
+                            clearInterval(removeTimer);
+                            textIndex = (textIndex + 1) % textPool.length;
+                            setTimeout(typeLoop, 200);
+                        }
+                    }, 60);
+                }, 1200);
+            }
+        }
+
+        typeLoop();
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const sections = document.querySelectorAll('main section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach((link) => {
+                        const isActive = link.getAttribute('href') === '#' + entry.target.id;
+                        link.classList.toggle('active', isActive);
+                    });
+                }
+            });
+        }, { threshold: 0.45 });
+
+        sections.forEach((section) => observer.observe(section));
+    </script>
+</body>
+
+</html>
